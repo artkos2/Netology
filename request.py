@@ -4,7 +4,7 @@ api_url_hero = 'https://www.superheroapi.com/api/'
 api_token_nero = '2619421814940190'
 api_url_ya = 'https://cloud-api.yandex.net/v1/disk/resources'
 api_url_stack = 'https://api.stackexchange.com/2.3/'
-api_ya_token = 'AQAAAAABK47YAADLW_X6czWxmUj3uZSHCEbWLV4'
+api_ya_token = '----'
 
 superheros = ['Hulk', 'Captain America', 'Thanos', 'Batman']
 
