@@ -1,8 +1,12 @@
 from pprint import pprint
-from itertools import count
 import os
 
+from decorator import make_trace, make_trace_path
+
 cook_book = {}
+
+
+@make_trace
 def make_cook_book(file_path):
     count = 0
     name = ''
@@ -25,7 +29,8 @@ def make_cook_book(file_path):
                 cook_book[name] = ingredients
                 file.readline()
     pprint(cook_book) 
-
+    return(cook_book)
+@make_trace_path('logs.txt')
 def get_shop_list_by_dishes(dishes, person_count):
     shop_list = {}
     for dishe in dishes:
@@ -36,7 +41,7 @@ def get_shop_list_by_dishes(dishes, person_count):
                 ing = {'measure': line['measure'], 'quantity':  int(line['quantity']) * person_count}
                 shop_list[line['ingredient_name']] = ing
     pprint(shop_list)
-
+    return(shop_list)
 
 def sort_files(files_dir, final_file_name = 'final_file.txt'):
     dict_files = {}
@@ -54,7 +59,7 @@ def sort_files(files_dir, final_file_name = 'final_file.txt'):
                 data = [line.strip() for line in data]
                 final_file.write('\n'.join(data) + '\n')
 
-
-make_cook_book('files/recipes.txt')
-get_shop_list_by_dishes(['Утка по-пекински', 'Омлет', 'Омлет'], 4)
-sort_files('files/sort_file')
+if __name__ == '__main__':
+    make_cook_book('files/recipes.txt')
+    get_shop_list_by_dishes(['Утка по-пекински', 'Омлет', 'Омлет'], 4)
+    # sort_files('files/sort_file')
